@@ -1,0 +1,30 @@
+{
+  "ticker": "TICKER",
+  "name": "Company name as filed",
+  "exchange": "BMV",
+  "currency": "MXN",
+  "units": "millions",
+  "source": "e.g. Reporte anual 2024, pp. 112-118 (link)",
+  "years": {
+    "2024": {
+      "revenue": 0,
+      "grossProfit": 0,
+      "sga": 0,
+      "rnd": 0,
+      "depreciation": 0,
+      "interestExpense": 0,
+      "operatingIncome": 0,
+      "netIncome": 0,
+      "eps": 0,
+      "sharesOutstanding": 0,
+      "cash": 0,
+      "longTermDebt": 0,
+      "totalLiabilities": 0,
+      "shareholdersEquity": 0,
+      "retainedEarnings": 0,
+      "capex": 0,
+      "operatingCashFlow": 0,
+      "price": 0
+    }
+  }
+}

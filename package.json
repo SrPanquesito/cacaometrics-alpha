@@ -1,0 +1,21 @@
+{
+  "name": "cacaometrics",
+  "version": "0.1.0",
+  "private": true,
+  "description": "CacaoMetrics — multi-agent, Buffett-style long-term stock evaluator",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "test": "npm test --workspaces --if-present",
+    "metrics": "node apps/cli/src/index.js metrics",
+    "analyze": "node apps/cli/src/index.js analyze",
+    "analyze:mock": "node apps/cli/src/index.js analyze --mock",
+    "demo": "node apps/demo/server.js"
+  }
+}

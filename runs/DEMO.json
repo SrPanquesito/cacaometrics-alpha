@@ -1,0 +1,949 @@
+{
+  "version": 1,
+  "createdAt": "2026-10-25T02:00:49.988Z",
+  "model": "mock",
+  "company": {
+    "ticker": "DEMO",
+    "name": "Chocolatera del Valle (empresa ficticia)",
+    "exchange": "BMV",
+    "currency": "MXN",
+    "units": "millions",
+    "source": "Fictional fixture for tests and demo rehearsal — NOT real data",
+    "fictional": true,
+    "firstYear": 2015,
+    "lastYear": 2024
+  },
+  "metrics": {
+    "company": {
+      "ticker": "DEMO",
+      "name": "Chocolatera del Valle (empresa ficticia)",
+      "exchange": "BMV",
+      "currency": "MXN",
+      "units": "millions",
+      "source": "Fictional fixture for tests and demo rehearsal — NOT real data",
+      "fictional": true,
+      "firstYear": 2015,
+      "lastYear": 2024
+    },
+    "groups": {
+      "competitiveAdvantage": {
+        "perYear": [
+          {
+            "year": 2015,
+            "grossMargin": 0.47,
+            "sgaToGrossProfit": 0.52,
+            "rndToGrossProfit": 0.0213,
+            "depreciationToGrossProfit": 0.0638,
+            "interestToOperatingIncome": 0.0514,
+            "netMargin": 0.1299
+          },
+          {
+            "year": 2016,
+            "grossMargin": 0.48,
+            "sgaToGrossProfit": 0.52,
+            "rndToGrossProfit": 0.0208,
+            "depreciationToGrossProfit": 0.0625,
+            "interestToOperatingIncome": 0.0446,
+            "netMargin": 0.134
+          },
+          {
+            "year": 2017,
+            "grossMargin": 0.475,
+            "sgaToGrossProfit": 0.52,
+            "rndToGrossProfit": 0.0211,
+            "depreciationToGrossProfit": 0.0632,
+            "interestToOperatingIncome": 0.0408,
+            "netMargin": 0.1329
+          },
+          {
+            "year": 2018,
+            "grossMargin": 0.48,
+            "sgaToGrossProfit": 0.52,
+            "rndToGrossProfit": 0.0208,
+            "depreciationToGrossProfit": 0.0625,
+            "interestToOperatingIncome": 0.0355,
+            "netMargin": 0.1353
+          },
+          {
+            "year": 2019,
+            "grossMargin": 0.485,
+            "sgaToGrossProfit": 0.52,
+            "rndToGrossProfit": 0.0206,
+            "depreciationToGrossProfit": 0.0619,
+            "interestToOperatingIncome": 0.0314,
+            "netMargin": 0.1375
+          },
+          {
+            "year": 2020,
+            "grossMargin": 0.47,
+            "sgaToGrossProfit": 0.52,
+            "rndToGrossProfit": 0.0213,
+            "depreciationToGrossProfit": 0.0638,
+            "interestToOperatingIncome": 0.0316,
+            "netMargin": 0.1326
+          },
+          {
+            "year": 2021,
+            "grossMargin": 0.48,
+            "sgaToGrossProfit": 0.52,
+            "rndToGrossProfit": 0.0208,
+            "depreciationToGrossProfit": 0.0625,
+            "interestToOperatingIncome": 0.0269,
+            "netMargin": 0.1365
+          },
+          {
+            "year": 2022,
+            "grossMargin": 0.485,
+            "sgaToGrossProfit": 0.52,
+            "rndToGrossProfit": 0.0206,
+            "depreciationToGrossProfit": 0.0619,
+            "interestToOperatingIncome": 0.0236,
+            "netMargin": 0.1386
+          },
+          {
+            "year": 2023,
+            "grossMargin": 0.49,
+            "sgaToGrossProfit": 0.52,
+            "rndToGrossProfit": 0.0204,
+            "depreciationToGrossProfit": 0.0612,
+            "interestToOperatingIncome": 0.0209,
+            "netMargin": 0.1406
+          },
+          {
+            "year": 2024,
+            "grossMargin": 0.49,
+            "sgaToGrossProfit": 0.52,
+            "rndToGrossProfit": 0.0204,
+            "depreciationToGrossProfit": 0.0612,
+            "interestToOperatingIncome": 0.0185,
+            "netMargin": 0.141
+          }
+        ],
+        "summary": {
+          "grossMarginAvg": 0.4805,
+          "grossMarginMin": 0.47,
+          "grossMarginStdev": 0.0069,
+          "sgaToGrossProfitAvg": 0.52,
+          "rndToGrossProfitAvg": 0.0208,
+          "depreciationToGrossProfitAvg": 0.0625,
+          "interestToOperatingIncomeAvg": 0.0325,
+          "netMarginAvg": 0.1359,
+          "netMarginMin": 0.1299
+        },
+        "checks": [
+          {
+            "id": "grossMarginDurable",
+            "label": "Average gross margin ≥ 40%",
+            "value": 0.4805,
+            "pass": true,
+            "threshold": "≥ 0.4"
+          },
+          {
+            "id": "grossMarginNeverWeak",
+            "label": "Gross margin never below 20%",
+            "value": 0.47,
+            "pass": true,
+            "threshold": "≥ 0.2"
+          },
+          {
+            "id": "sgaReasonable",
+            "label": "SG&A below 80% of gross profit",
+            "value": 0.52,
+            "pass": true,
+            "threshold": "≤ 0.8"
+          },
+          {
+            "id": "sgaExcellent",
+            "label": "SG&A below 30% of gross profit",
+            "value": 0.52,
+            "pass": false,
+            "threshold": "≤ 0.3"
+          },
+          {
+            "id": "rndLight",
+            "label": "R&D below 30% of gross profit",
+            "value": 0.0208,
+            "pass": true,
+            "threshold": "≤ 0.3"
+          },
+          {
+            "id": "depreciationLight",
+            "label": "Depreciation below 10% of gross profit",
+            "value": 0.0625,
+            "pass": true,
+            "threshold": "≤ 0.1"
+          },
+          {
+            "id": "interestLight",
+            "label": "Interest below 15% of operating income",
+            "value": 0.0325,
+            "pass": true,
+            "threshold": "≤ 0.15"
+          },
+          {
+            "id": "netMarginDurable",
+            "label": "Average net margin ≥ 20%",
+            "value": 0.1359,
+            "pass": false,
+            "threshold": "≥ 0.2"
+          }
+        ]
+      },
+      "earningsQuality": {
+        "perYear": [
+          {
+            "year": 2015,
+            "netIncome": 2478.03,
+            "eps": 2.5,
+            "epsGrowth": null,
+            "roe": 0.245
+          },
+          {
+            "year": 2016,
+            "netIncome": 2736.22,
+            "eps": 2.79,
+            "epsGrowth": 0.116,
+            "roe": 0.2412
+          },
+          {
+            "year": 2017,
+            "netIncome": 2849.79,
+            "eps": 2.94,
+            "epsGrowth": 0.0538,
+            "roe": 0.2257
+          },
+          {
+            "year": 2018,
+            "netIncome": 3132.43,
+            "eps": 3.26,
+            "epsGrowth": 0.1088,
+            "roe": 0.2231
+          },
+          {
+            "year": 2019,
+            "netIncome": 3374.28,
+            "eps": 3.55,
+            "epsGrowth": 0.089,
+            "roe": 0.2169
+          },
+          {
+            "year": 2020,
+            "netIncome": 3188.87,
+            "eps": 3.39,
+            "epsGrowth": -0.0451,
+            "roe": 0.1877
+          },
+          {
+            "year": 2021,
+            "netIncome": 3578.51,
+            "eps": 3.84,
+            "epsGrowth": 0.1327,
+            "roe": 0.1924
+          },
+          {
+            "year": 2022,
+            "netIncome": 3887.98,
+            "eps": 4.21,
+            "epsGrowth": 0.0964,
+            "roe": 0.191
+          },
+          {
+            "year": 2023,
+            "netIncome": 4181.53,
+            "eps": 4.58,
+            "epsGrowth": 0.0879,
+            "roe": 0.1881
+          },
+          {
+            "year": 2024,
+            "netIncome": 4484.94,
+            "eps": 4.96,
+            "epsGrowth": 0.083,
+            "roe": 0.1849
+          }
+        ],
+        "summary": {
+          "years": 10,
+          "positiveYears": 10,
+          "positiveYearsShare": 1,
+          "epsDeclines": 1,
+          "epsCagr": 0.0791,
+          "netIncomeCagr": 0.0681,
+          "retainedEarningsCagr": 0.1293,
+          "roeAvg": 0.2096,
+          "roeMin": 0.1849,
+          "negativeEquityYears": 0
+        },
+        "checks": [
+          {
+            "id": "alwaysProfitable",
+            "label": "Net income positive every year",
+            "value": 1,
+            "pass": true,
+            "threshold": "= 1"
+          },
+          {
+            "id": "epsConsistent",
+            "label": "EPS fell in at most 1 year(s)",
+            "value": 1,
+            "pass": true,
+            "threshold": "≤ 1"
+          },
+          {
+            "id": "epsGrowing",
+            "label": "EPS grew over the period",
+            "value": 0.0791,
+            "pass": true,
+            "threshold": "> 0"
+          },
+          {
+            "id": "roeDurable",
+            "label": "Average ROE ≥ 15%",
+            "value": 0.2096,
+            "pass": true,
+            "threshold": "≥ 0.15"
+          }
+        ]
+      },
+      "balanceSheet": {
+        "perYear": [
+          {
+            "year": 2015,
+            "cash": 2289.6,
+            "longTermDebt": 3040,
+            "yearsToRepayLtDebt": 1.2268,
+            "liabilitiesToEquity": 0.7721,
+            "netCash": -750.4
+          },
+          {
+            "year": 2016,
+            "cash": 2449.87,
+            "longTermDebt": 2888,
+            "yearsToRepayLtDebt": 1.0555,
+            "liabilitiesToEquity": 0.7044,
+            "netCash": -438.13
+          },
+          {
+            "year": 2017,
+            "cash": 2572.37,
+            "longTermDebt": 2743.6,
+            "yearsToRepayLtDebt": 0.9627,
+            "liabilitiesToEquity": 0.6416,
+            "netCash": -171.23
+          },
+          {
+            "year": 2018,
+            "cash": 2778.15,
+            "longTermDebt": 2606.42,
+            "yearsToRepayLtDebt": 0.8321,
+            "liabilitiesToEquity": 0.5979,
+            "netCash": 171.73
+          },
+          {
+            "year": 2019,
+            "cash": 2944.84,
+            "longTermDebt": 2476.1,
+            "yearsToRepayLtDebt": 0.7338,
+            "liabilitiesToEquity": 0.5535,
+            "netCash": 468.74
+          },
+          {
+            "year": 2020,
+            "cash": 2885.95,
+            "longTermDebt": 2352.29,
+            "yearsToRepayLtDebt": 0.7377,
+            "liabilitiesToEquity": 0.4923,
+            "netCash": 533.66
+          },
+          {
+            "year": 2021,
+            "cash": 3145.68,
+            "longTermDebt": 2234.68,
+            "yearsToRepayLtDebt": 0.6245,
+            "liabilitiesToEquity": 0.4724,
+            "netCash": 911
+          },
+          {
+            "year": 2022,
+            "cash": 3365.88,
+            "longTermDebt": 2122.95,
+            "yearsToRepayLtDebt": 0.546,
+            "liabilitiesToEquity": 0.4489,
+            "netCash": 1242.93
+          },
+          {
+            "year": 2023,
+            "cash": 3567.83,
+            "longTermDebt": 2016.8,
+            "yearsToRepayLtDebt": 0.4823,
+            "liabilitiesToEquity": 0.425,
+            "netCash": 1551.03
+          },
+          {
+            "year": 2024,
+            "cash": 3817.58,
+            "longTermDebt": 1915.96,
+            "yearsToRepayLtDebt": 0.4272,
+            "liabilitiesToEquity": 0.407,
+            "netCash": 1901.62
+          }
+        ],
+        "summary": {
+          "latestYearsToRepayLtDebt": 0.4272,
+          "worstYearsToRepayLtDebt": 1.2268,
+          "latestLiabilitiesToEquity": 0.407,
+          "liabilitiesToEquityAvg": 0.5515,
+          "latestNetCash": 1901.62,
+          "longTermDebtChange": -0.3697,
+          "cashChange": 0.6674
+        },
+        "checks": [
+          {
+            "id": "debtRepayable",
+            "label": "Long-term debt payable with ≤ 4 years of net income",
+            "value": 0.4272,
+            "pass": true,
+            "threshold": "≤ 4"
+          },
+          {
+            "id": "leverageModest",
+            "label": "Total liabilities / equity below 0.8",
+            "value": 0.407,
+            "pass": true,
+            "threshold": "≤ 0.8"
+          },
+          {
+            "id": "debtNotGrowing",
+            "label": "Long-term debt has not grown over the period",
+            "value": -0.3697,
+            "pass": true,
+            "threshold": "≤ 0"
+          },
+          {
+            "id": "cashGrowing",
+            "label": "Cash grew over the period",
+            "value": 0.6674,
+            "pass": true,
+            "threshold": "> 0"
+          }
+        ]
+      },
+      "capitalAllocation": {
+        "perYear": [
+          {
+            "year": 2015,
+            "capexToNetIncome": 0.35,
+            "freeCashFlow": 2354.13,
+            "sharesOutstanding": 990
+          },
+          {
+            "year": 2016,
+            "capexToNetIncome": 0.35,
+            "freeCashFlow": 2599.41,
+            "sharesOutstanding": 980.1
+          },
+          {
+            "year": 2017,
+            "capexToNetIncome": 0.35,
+            "freeCashFlow": 2707.29,
+            "sharesOutstanding": 970.3
+          },
+          {
+            "year": 2018,
+            "capexToNetIncome": 0.35,
+            "freeCashFlow": 2975.81,
+            "sharesOutstanding": 960.6
+          },
+          {
+            "year": 2019,
+            "capexToNetIncome": 0.35,
+            "freeCashFlow": 3205.57,
+            "sharesOutstanding": 950.99
+          },
+          {
+            "year": 2020,
+            "capexToNetIncome": 0.35,
+            "freeCashFlow": 3029.43,
+            "sharesOutstanding": 941.48
+          },
+          {
+            "year": 2021,
+            "capexToNetIncome": 0.35,
+            "freeCashFlow": 3399.58,
+            "sharesOutstanding": 932.07
+          },
+          {
+            "year": 2022,
+            "capexToNetIncome": 0.35,
+            "freeCashFlow": 3693.58,
+            "sharesOutstanding": 922.74
+          },
+          {
+            "year": 2023,
+            "capexToNetIncome": 0.35,
+            "freeCashFlow": 3972.45,
+            "sharesOutstanding": 913.52
+          },
+          {
+            "year": 2024,
+            "capexToNetIncome": 0.35,
+            "freeCashFlow": 4260.69,
+            "sharesOutstanding": 904.38
+          }
+        ],
+        "summary": {
+          "capexToNetIncomeAvg": 0.35,
+          "shareCountChange": -0.0865,
+          "freeCashFlowPositiveYears": 10,
+          "freeCashFlowYearsReported": 10
+        },
+        "checks": [
+          {
+            "id": "capexModest",
+            "label": "Capex below 50% of net income",
+            "value": 0.35,
+            "pass": true,
+            "threshold": "≤ 0.5"
+          },
+          {
+            "id": "capexExcellent",
+            "label": "Capex below 25% of net income",
+            "value": 0.35,
+            "pass": false,
+            "threshold": "≤ 0.25"
+          },
+          {
+            "id": "sharesNotDiluted",
+            "label": "Share count did not increase",
+            "value": -0.0865,
+            "pass": true,
+            "threshold": "≤ 0"
+          }
+        ]
+      },
+      "valuation": {
+        "perYear": [
+          {
+            "year": 2015,
+            "pe": 19.02
+          },
+          {
+            "year": 2016,
+            "pe": 20.01
+          },
+          {
+            "year": 2017,
+            "pe": 17.98
+          },
+          {
+            "year": 2018,
+            "pe": 21.01
+          },
+          {
+            "year": 2019,
+            "pe": 21.99
+          },
+          {
+            "year": 2020,
+            "pe": 18.98
+          },
+          {
+            "year": 2021,
+            "pe": 22.99
+          },
+          {
+            "year": 2022,
+            "pe": 22.02
+          },
+          {
+            "year": 2023,
+            "pe": 20.99
+          },
+          {
+            "year": 2024,
+            "pe": 22
+          }
+        ],
+        "summary": {
+          "latestEps": 4.96,
+          "price": 109.1,
+          "currentPe": 22,
+          "earningsYield": 0.0455,
+          "historicalPeAvg": 20.7,
+          "historicalEpsCagr": 0.0791,
+          "assumptions": {
+            "growth": 0.0791,
+            "exitPe": 20.7,
+            "years": 10,
+            "discountRate": 0.1
+          },
+          "intrinsicValuePerShare": {
+            "conservative": 46.67,
+            "base": 84.74,
+            "optimistic": 107.82
+          },
+          "marginOfSafety": -0.2875
+        },
+        "checks": [
+          {
+            "id": "marginOfSafety",
+            "label": "Price at least 30% below base intrinsic value",
+            "value": -0.2875,
+            "pass": false,
+            "threshold": "≥ 0.3"
+          },
+          {
+            "id": "belowConservative",
+            "label": "Price below the conservative valuation",
+            "value": 109.1,
+            "pass": false,
+            "threshold": "≤ 46.67"
+          }
+        ]
+      }
+    },
+    "checksPassed": 16,
+    "checksScored": 21,
+    "thresholds": {
+      "grossMarginDurable": 0.4,
+      "grossMarginWeak": 0.2,
+      "sgaToGrossProfitExcellent": 0.3,
+      "sgaToGrossProfitMax": 0.8,
+      "rndToGrossProfitMax": 0.3,
+      "depreciationToGrossProfitMax": 0.1,
+      "interestToOperatingIncomeMax": 0.15,
+      "netMarginDurable": 0.2,
+      "netMarginWeak": 0.1,
+      "minPositiveYearsShare": 1,
+      "maxEpsDeclines": 1,
+      "roeDurable": 0.15,
+      "maxYearsToRepayLtDebt": 4,
+      "maxLiabilitiesToEquity": 0.8,
+      "capexToNetIncomeExcellent": 0.25,
+      "capexToNetIncomeMax": 0.5,
+      "discountRate": 0.1,
+      "projectionYears": 10,
+      "maxGrowthAssumed": 0.15,
+      "maxPeAssumed": 25,
+      "marginOfSafety": 0.3
+    }
+  },
+  "agentReports": [
+    {
+      "agentId": "competitiveAdvantage",
+      "name": {
+        "es": "Ventaja competitiva",
+        "en": "Competitive advantage"
+      },
+      "groups": [
+        "competitiveAdvantage"
+      ],
+      "report": {
+        "score": 8,
+        "verdict": "strong",
+        "summary": {
+          "es": "Cumple 6 de 8 criterios de esta área.",
+          "en": "Meets 6 of 8 criteria in this area."
+        },
+        "keyFindings": [
+          {
+            "es": "Average gross margin ≥ 40%: 48.0%",
+            "en": "Average gross margin ≥ 40%: 48.0%"
+          },
+          {
+            "es": "Gross margin never below 20%: 47.0%",
+            "en": "Gross margin never below 20%: 47.0%"
+          },
+          {
+            "es": "SG&A below 80% of gross profit: 52.0%",
+            "en": "SG&A below 80% of gross profit: 52.0%"
+          },
+          {
+            "es": "R&D below 30% of gross profit: 2.1%",
+            "en": "R&D below 30% of gross profit: 2.1%"
+          }
+        ],
+        "redFlags": [
+          {
+            "es": "SG&A below 30% of gross profit: 52.0%",
+            "en": "SG&A below 30% of gross profit: 52.0%"
+          },
+          {
+            "es": "Average net margin ≥ 20%: 13.6%",
+            "en": "Average net margin ≥ 20%: 13.6%"
+          }
+        ]
+      }
+    },
+    {
+      "agentId": "earningsQuality",
+      "name": {
+        "es": "Calidad de las utilidades",
+        "en": "Earnings quality"
+      },
+      "groups": [
+        "earningsQuality",
+        "capitalAllocation"
+      ],
+      "report": {
+        "score": 9,
+        "verdict": "strong",
+        "summary": {
+          "es": "Cumple 6 de 7 criterios de esta área.",
+          "en": "Meets 6 of 7 criteria in this area."
+        },
+        "keyFindings": [
+          {
+            "es": "Net income positive every year: 100.0%",
+            "en": "Net income positive every year: 100.0%"
+          },
+          {
+            "es": "EPS fell in at most 1 year(s): 100.0%",
+            "en": "EPS fell in at most 1 year(s): 100.0%"
+          },
+          {
+            "es": "EPS grew over the period: 7.9%",
+            "en": "EPS grew over the period: 7.9%"
+          },
+          {
+            "es": "Average ROE ≥ 15%: 21.0%",
+            "en": "Average ROE ≥ 15%: 21.0%"
+          }
+        ],
+        "redFlags": [
+          {
+            "es": "Capex below 25% of net income: 35.0%",
+            "en": "Capex below 25% of net income: 35.0%"
+          }
+        ]
+      }
+    },
+    {
+      "agentId": "balanceSheet",
+      "name": {
+        "es": "Balance y deuda",
+        "en": "Balance sheet & debt"
+      },
+      "groups": [
+        "balanceSheet"
+      ],
+      "report": {
+        "score": 10,
+        "verdict": "strong",
+        "summary": {
+          "es": "Cumple 4 de 4 criterios de esta área.",
+          "en": "Meets 4 of 4 criteria in this area."
+        },
+        "keyFindings": [
+          {
+            "es": "Long-term debt payable with ≤ 4 years of net income: 42.7%",
+            "en": "Long-term debt payable with ≤ 4 years of net income: 42.7%"
+          },
+          {
+            "es": "Total liabilities / equity below 0.8: 40.7%",
+            "en": "Total liabilities / equity below 0.8: 40.7%"
+          },
+          {
+            "es": "Long-term debt has not grown over the period: -37.0%",
+            "en": "Long-term debt has not grown over the period: -37.0%"
+          },
+          {
+            "es": "Cash grew over the period: 66.7%",
+            "en": "Cash grew over the period: 66.7%"
+          }
+        ],
+        "redFlags": []
+      }
+    },
+    {
+      "agentId": "valuation",
+      "name": {
+        "es": "Valuación y margen de seguridad",
+        "en": "Valuation & margin of safety"
+      },
+      "groups": [
+        "valuation",
+        "earningsQuality"
+      ],
+      "report": {
+        "score": 0,
+        "verdict": "weak",
+        "summary": {
+          "es": "Cumple 0 de 2 criterios de esta área.",
+          "en": "Meets 0 of 2 criteria in this area."
+        },
+        "keyFindings": [],
+        "redFlags": [
+          {
+            "es": "Price at least 30% below base intrinsic value: -28.7%",
+            "en": "Price at least 30% below base intrinsic value: -28.7%"
+          },
+          {
+            "es": "Price below the conservative valuation: 109.1",
+            "en": "Price below the conservative valuation: 109.1"
+          }
+        ]
+      }
+    }
+  ],
+  "final": {
+    "overallScore": 76,
+    "verdict": "durable_wait_for_price",
+    "headline": {
+      "es": "Buen negocio, pero el precio actual no deja margen de seguridad.",
+      "en": "A good business, but today’s price leaves no margin of safety."
+    },
+    "summary": {
+      "es": "Cumple 16 de 21 criterios en total. (Resumen de prueba generado sin LLM.)",
+      "en": "Meets 16 of 21 criteria overall. (Test summary generated without an LLM.)"
+    },
+    "strengths": [
+      {
+        "es": "Average gross margin ≥ 40%: 48.0%",
+        "en": "Average gross margin ≥ 40%: 48.0%"
+      },
+      {
+        "es": "Gross margin never below 20%: 47.0%",
+        "en": "Gross margin never below 20%: 47.0%"
+      },
+      {
+        "es": "SG&A below 80% of gross profit: 52.0%",
+        "en": "SG&A below 80% of gross profit: 52.0%"
+      },
+      {
+        "es": "R&D below 30% of gross profit: 2.1%",
+        "en": "R&D below 30% of gross profit: 2.1%"
+      }
+    ],
+    "risks": [
+      {
+        "es": "SG&A below 30% of gross profit: 52.0%",
+        "en": "SG&A below 30% of gross profit: 52.0%"
+      },
+      {
+        "es": "Average net margin ≥ 20%: 13.6%",
+        "en": "Average net margin ≥ 20%: 13.6%"
+      },
+      {
+        "es": "Capex below 25% of net income: 35.0%",
+        "en": "Capex below 25% of net income: 35.0%"
+      },
+      {
+        "es": "Price at least 30% below base intrinsic value: -28.7%",
+        "en": "Price at least 30% below base intrinsic value: -28.7%"
+      }
+    ],
+    "questionsToInvestigate": [
+      {
+        "es": "¿Qué protege los márgenes de la competencia?",
+        "en": "What protects the margins from competitors?"
+      },
+      {
+        "es": "¿Qué tan realistas son los supuestos de crecimiento?",
+        "en": "How realistic are the growth assumptions?"
+      }
+    ]
+  },
+  "disclaimer": {
+    "es": "CacaoMetrics es una herramienta de análisis y educación financiera. No constituye asesoría ni recomendación de inversión.",
+    "en": "CacaoMetrics is a financial analysis and education tool. It is not investment advice or a recommendation."
+  },
+  "timeline": [
+    {
+      "type": "metrics_ready",
+      "t": 0,
+      "checksPassed": 16,
+      "checksScored": 21
+    },
+    {
+      "type": "agent_started",
+      "t": 0,
+      "agentId": "competitiveAdvantage",
+      "name": {
+        "es": "Ventaja competitiva",
+        "en": "Competitive advantage"
+      }
+    },
+    {
+      "type": "agent_started",
+      "t": 0,
+      "agentId": "earningsQuality",
+      "name": {
+        "es": "Calidad de las utilidades",
+        "en": "Earnings quality"
+      }
+    },
+    {
+      "type": "agent_started",
+      "t": 0,
+      "agentId": "balanceSheet",
+      "name": {
+        "es": "Balance y deuda",
+        "en": "Balance sheet & debt"
+      }
+    },
+    {
+      "type": "agent_started",
+      "t": 0,
+      "agentId": "valuation",
+      "name": {
+        "es": "Valuación y margen de seguridad",
+        "en": "Valuation & margin of safety"
+      }
+    },
+    {
+      "type": "agent_finished",
+      "t": 1,
+      "agentId": "competitiveAdvantage",
+      "name": {
+        "es": "Ventaja competitiva",
+        "en": "Competitive advantage"
+      },
+      "score": 8,
+      "verdict": "strong"
+    },
+    {
+      "type": "agent_finished",
+      "t": 1,
+      "agentId": "earningsQuality",
+      "name": {
+        "es": "Calidad de las utilidades",
+        "en": "Earnings quality"
+      },
+      "score": 9,
+      "verdict": "strong"
+    },
+    {
+      "type": "agent_finished",
+      "t": 1,
+      "agentId": "balanceSheet",
+      "name": {
+        "es": "Balance y deuda",
+        "en": "Balance sheet & debt"
+      },
+      "score": 10,
+      "verdict": "strong"
+    },
+    {
+      "type": "agent_finished",
+      "t": 1,
+      "agentId": "valuation",
+      "name": {
+        "es": "Valuación y margen de seguridad",
+        "en": "Valuation & margin of safety"
+      },
+      "score": 0,
+      "verdict": "weak"
+    },
+    {
+      "type": "orchestrator_started",
+      "t": 1
+    },
+    {
+      "type": "orchestrator_finished",
+      "t": 1,
+      "verdict": "durable_wait_for_price",
+      "overallScore": 76
+    }
+  ]
+}

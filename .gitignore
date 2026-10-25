@@ -1,0 +1,9 @@
+node_modules/
+.env
+.DS_Store
+*.log
+# Saved runs are demo assets — commit the ones you want to show
+runs/*.json
+!runs/.gitkeep
+!runs/DEMO.json
+apps/demo/dist/
