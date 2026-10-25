@@ -1,4 +1,4 @@
-# CacaoMetrics
+# CacaoMetrics Alpha
 
 Multi-agent, Buffett-style evaluator for long-term investments. Every number is
 computed deterministically in code; the LLM agents only interpret those numbers.
