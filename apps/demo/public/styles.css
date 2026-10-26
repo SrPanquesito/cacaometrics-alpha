@@ -78,7 +78,7 @@ h3 { font-size: 17px; }
 .pick { display: flex; align-items: center; gap: 14px; width: 100%; text-align: left; transition: transform .15s ease, border-color .15s ease; }
 .pick:active { transform: scale(.985); }
 .pick:hover { border-color: var(--cacao); }
-.ticker { flex: none; width: 56px; height: 56px; border-radius: 14px; display: grid; place-items: center; background: var(--cacao-soft); color: var(--cacao); font: 700 14px var(--sans); }
+.ticker { flex: none; width: 56px; height: 56px; border-radius: 14px; display: grid; place-items: center; background: var(--cacao-soft); color: var(--cacao); font: 700 14px var(--sans); overflow: hidden; }
 .pick .go { margin-left: auto; color: var(--cacao); font-weight: 600; white-space: nowrap; }
 .badge { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; background: var(--warn-soft); color: var(--warn); }
 

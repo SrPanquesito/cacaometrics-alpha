@@ -6,17 +6,32 @@ export const DISCLAIMER = {
   en: 'CacaoMetrics is a financial analysis and education tool. It is not investment advice or a recommendation.',
 };
 
+/**
+ * Cut arrays down to the schema's maxItems. Strict tool use can't enforce maxItems,
+ * so an extra finding is trimmed instead of failing the whole run.
+ */
+function trimLists(value, schema) {
+  if (Array.isArray(value) && schema?.type === 'array') {
+    const kept = schema.maxItems !== undefined ? value.slice(0, schema.maxItems) : value;
+    return kept.map((v) => trimLists(v, schema.items));
+  }
+  if (value && typeof value === 'object' && schema?.properties) {
+    return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, trimLists(v, schema.properties[k])]));
+  }
+  return value;
+}
+
 /** Call the model, validate against the schema, and retry once with the errors if invalid. */
 async function callValidated(llm, { system, input, schema, toolName }) {
-  let out = await llm.structured({ system, input, schema, toolName });
+  let out = trimLists(await llm.structured({ system, input, schema, toolName }), schema);
   let problems = validate(out, schema);
   if (problems.length) {
-    out = await llm.structured({
+    out = trimLists(await llm.structured({
       system: `${system}\n\nYour previous answer was invalid: ${problems.join('; ')}. Fix these problems.`,
       input,
       schema,
       toolName,
-    });
+    }), schema);
     problems = validate(out, schema);
     if (problems.length) throw new Error(`${toolName} returned invalid output: ${problems.join('; ')}`);
   }

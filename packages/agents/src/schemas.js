@@ -10,7 +10,7 @@ const bilingual = {
   required: ['es', 'en'],
 };
 
-const bilingualList = (maxItems) => ({ type: 'array', items: bilingual, maxItems });
+const bilingualList = (maxItems) => ({ type: 'array', items: bilingual, maxItems, description: `At most ${maxItems} items.` });
 
 export const AGENT_OUTPUT_SCHEMA = {
   type: 'object',
@@ -18,8 +18,8 @@ export const AGENT_OUTPUT_SCHEMA = {
     score: { type: 'integer', minimum: 0, maximum: 10, description: '0 = fails every criterion, 10 = exemplary' },
     verdict: { type: 'string', enum: ['strong', 'acceptable', 'weak', 'insufficient_data'] },
     summary: { ...bilingual, description: 'Two sentences at most.' },
-    keyFindings: { ...bilingualList(4), description: 'Each finding must cite a number from the metrics.' },
-    redFlags: { ...bilingualList(3), description: 'Empty array if there are none.' },
+    keyFindings: { ...bilingualList(4), description: 'At most 4 items. Each finding must cite a number from the metrics.' },
+    redFlags: { ...bilingualList(3), description: 'At most 3 items. Empty array if there are none.' },
   },
   required: ['score', 'verdict', 'summary', 'keyFindings', 'redFlags'],
 };
@@ -38,7 +38,7 @@ export const ORCHESTRATOR_OUTPUT_SCHEMA = {
     summary: { ...bilingual, description: 'Three to four sentences.' },
     strengths: bilingualList(4),
     risks: bilingualList(4),
-    questionsToInvestigate: { ...bilingualList(3), description: 'What a careful investor should check next.' },
+    questionsToInvestigate: { ...bilingualList(3), description: 'At most 3 items. What a careful investor should check next.' },
   },
   required: ['overallScore', 'verdict', 'headline', 'summary', 'strengths', 'risks', 'questionsToInvestigate'],
 };

@@ -24,10 +24,13 @@ export class AnthropicLlm {
       body: JSON.stringify({
         model: this.model,
         max_tokens: this.maxTokens,
-        system,
-        // Forcing a single tool call is how we get guaranteed-structured JSON back.
-        tools: [{ name: toolName, description: 'Submit your structured report.', input_schema: schema }],
-        tool_choice: { type: 'tool', name: toolName },
+        system: `${system}\n\nAlways respond by calling the \`${toolName}\` tool exactly once with your complete report. Do not reply with plain text.`,
+        // Newer models (Sonnet 5.5, Opus 5.5, Fable 5.1) reject forced tool_choice ("tool"/"any"),
+        // so we use "auto" and ask for the tool call in the system prompt. Output is still validated by the caller.
+        // strict: true makes the API enforce the schema, so nested objects/arrays arrive as real JSON
+        // (without it the model sometimes sends them as XML-like strings).
+        tools: [{ name: toolName, description: 'Submit your structured report.', input_schema: toStrictSchema(schema), strict: true }],
+        tool_choice: { type: 'auto', disable_parallel_tool_use: true },
         messages: [{ role: 'user', content: `Metrics (JSON):\n${JSON.stringify(input, null, 2)}` }],
       }),
     });
@@ -41,6 +44,25 @@ export class AnthropicLlm {
     if (!block) throw new Error(`Model did not call tool "${toolName}" (stop_reason: ${data.stop_reason})`);
     return block.input;
   }
+}
+
+/**
+ * Copy of a schema that strict tool use accepts: every object gets additionalProperties: false,
+ * and keywords strict mode doesn't support (minimum, maximum, maxItems) are dropped.
+ * Those limits are still enforced afterwards by validate() in orchestrator.js.
+ */
+const STRICT_UNSUPPORTED = new Set(['minimum', 'maximum', 'maxItems']);
+export function toStrictSchema(schema) {
+  if (Array.isArray(schema)) return schema.map(toStrictSchema);
+  if (!schema || typeof schema !== 'object') return schema;
+  const out = {};
+  for (const [key, value] of Object.entries(schema)) {
+    if (STRICT_UNSUPPORTED.has(key)) continue;
+    if (key === 'properties') out.properties = Object.fromEntries(Object.entries(value).map(([k, v]) => [k, toStrictSchema(v)]));
+    else out[key] = typeof value === 'object' && key !== 'enum' && key !== 'required' ? toStrictSchema(value) : value;
+  }
+  if (out.type === 'object') out.additionalProperties = false;
+  return out;
 }
 
 /**
